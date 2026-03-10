@@ -84,11 +84,7 @@ public class LayoutController implements Initializable {
 
     @FXML
     private void clickLogoutNav() {
-        try {
-            org.example.layeredarchitecture.Main.setRoot("login");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Main.setRoot("login");
     }
 
 

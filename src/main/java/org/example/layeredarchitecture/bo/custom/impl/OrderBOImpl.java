@@ -34,6 +34,11 @@ public class OrderBOImpl implements OrderBO {
     }
 
     @Override
+    public boolean existItem(String id) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
     public boolean existItem(int id) throws SQLException, ClassNotFoundException {
         return itemDAO.exists(id);
     }
@@ -77,6 +82,11 @@ public class OrderBOImpl implements OrderBO {
 
     @Override
     public boolean saveOrder(String orderId, LocalDate orderDate, String customerId, List<OrderDetailDTO> orderDetails) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean saveOrder(String orderId, LocalDate orderDate, String customerId,Double unitPrice, List<OrderDetailDTO> orderDetails) throws SQLException, ClassNotFoundException {
         /*Transaction*/
         Connection connection = null;
         try {

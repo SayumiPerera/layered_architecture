@@ -61,6 +61,16 @@ public class SupplierDAOImpl implements SupplierDAO {
     }
 
     @Override
+    public boolean exists() throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public void search(String id) throws SQLException, ClassNotFoundException {
+
+    }
+
+    @Override
     public String generateNewID() throws SQLException, ClassNotFoundException {
         ResultSet rst = CRUDUtil.execute("SELECT supplierCompanyId FROM Supplier ORDER BY supplierCompanyId DESC LIMIT 1;");
 

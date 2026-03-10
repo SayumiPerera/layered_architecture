@@ -40,6 +40,26 @@ public class StockDAOImpl implements StockDAO {
     }
 
     @Override
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public boolean exists() throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public void search(String id) throws SQLException, ClassNotFoundException {
+
+    }
+
+    @Override
+    public boolean find(String id) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
     public boolean delete(int id) throws SQLException, ClassNotFoundException {
         return CRUDUtil.execute("DELETE FROM stock WHERE stock_id = ?", id);
     }

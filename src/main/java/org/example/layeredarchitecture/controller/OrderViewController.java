@@ -2,6 +2,7 @@ package org.example.layeredarchitecture.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.beans.value.ObservableValue;
 import org.example.layeredarchitecture.bo.BOFactory;
 import org.example.layeredarchitecture.bo.custom.OrderBO;
 import org.example.layeredarchitecture.dto.CustomerDTO;
@@ -67,18 +68,7 @@ public class OrderViewController {
         tblOrderDetails.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("total"));
         TableColumn<OrderDetailTM, Button> lastCol = (TableColumn<OrderDetailTM, Button>) tblOrderDetails.getColumns().get(5);
 
-        lastCol.setCellValueFactory(param -> {
-            Button btnDelete = new Button("Delete");
-
-            btnDelete.setOnAction(event -> {
-                tblOrderDetails.getItems().remove(param.getValue());
-                tblOrderDetails.getSelectionModel().clearSelection();
-                calculateTotal();
-                enableOrDisablePlaceOrderButton();
-            });
-
-            return new ReadOnlyObjectWrapper<>(btnDelete);
-        });
+        lastCol.setCellValueFactory(this::call);
 
         orderId = generateNewOrderId();
         lblId.setText("Order ID: " + orderId);
@@ -329,5 +319,18 @@ public class OrderViewController {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private ObservableValue<Button> call(TableColumn.CellDataFeatures<OrderDetailTM, Button> param) {
+        Button btnDelete = new Button("Delete");
+
+        btnDelete.setOnAction(event -> {
+            tblOrderDetails.getItems().remove(param.getValue());
+            tblOrderDetails.getSelectionModel().clearSelection();
+            calculateTotal();
+            enableOrDisablePlaceOrderButton();
+        });
+
+        return new ReadOnlyObjectWrapper<>(btnDelete);
     }
 }

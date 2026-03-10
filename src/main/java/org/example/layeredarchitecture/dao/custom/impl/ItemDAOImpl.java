@@ -8,6 +8,7 @@ import org.example.layeredarchitecture.entity.Item;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemDAOImpl implements ItemDAO {
 
@@ -35,6 +36,21 @@ public class ItemDAOImpl implements ItemDAO {
         return CRUDUtil.execute("UPDATE Item SET description=?, unitPrice=?, qtyOnHand=? WHERE code=?",entity.getDescription(),entity.getUnitPrice(),entity.getQtyOnHand(),entity.getCode());
     }
 
+    @Override
+    public boolean delete(int id) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public Item find(int id) throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public boolean exists(int id) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
     public boolean delete(String itemCode) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getDbConnection().getConnection();
         String query = "DELETE FROM Item WHERE code=?";
@@ -44,6 +60,16 @@ public class ItemDAOImpl implements ItemDAO {
 
         int rs = pstm.executeUpdate();
         return rs > 0;
+    }
+
+    @Override
+    public boolean exists() throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public void search(String id) throws SQLException, ClassNotFoundException {
+
     }
 
     public boolean exists(String itemCode) throws SQLException, ClassNotFoundException {
@@ -60,13 +86,18 @@ public class ItemDAOImpl implements ItemDAO {
         if (rst.next()) {
             String id = rst.getString("code");
             int newItemId = Integer.parseInt(id.replace("I00-", "")) + 1;
-            return String.format("I00-%03d", newItemId);
+            return Boolean.parseBoolean(String.format("I00-%03d", newItemId));
         }else {
-            return "I00-001";
+            return Boolean.parseBoolean("I00-001");
         }
     }
 
-    public boolean find(String itemCode) throws SQLException, ClassNotFoundException {
+    @Override
+    public List<String> getAllItemIds() throws SQLException, ClassNotFoundException {
+        return List.of();
+    }
+
+    public Item find(String itemCode) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getDbConnection().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Item WHERE code=?");
         pstm.setString(1, itemCode + "");
