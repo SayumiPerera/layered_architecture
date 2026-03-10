@@ -39,6 +39,16 @@ public class CustomerDAOImpl implements CustomerDAO{
     }
 
     @Override
+    public boolean exists() throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
+    @Override
+    public void search(String id) throws SQLException, ClassNotFoundException {
+
+    }
+
+    @Override
     public String generateNewID() throws SQLException, ClassNotFoundException {
         ResultSet rst =CRUDUtil.execute("SELECT id FROM Customer ORDER BY id DESC LIMIT 1;");
 
