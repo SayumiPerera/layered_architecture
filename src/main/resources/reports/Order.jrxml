@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC
+        "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="OrderReport"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="555"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20">
+
+    <!-- Fields (must match OrderDTO getters) -->
+    <field name="customerId" class="java.lang.Integer"/>
+    <field name="orderDate" class="java.time.LocalDate"/>
+
+    <!-- Title -->
+    <title>
+        <band height="40">
+            <textField>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Order Report"]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <!-- Column Header -->
+    <columnHeader>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="150" height="25"/>
+                <text><![CDATA[Customer ID]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="150" y="0" width="200" height="25"/>
+                <text><![CDATA[Order Date]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detail -->
+    <detail>
+        <band height="25">
+            <textField>
+                <reportElement x="0" y="0" width="150" height="25"/>
+                <textFieldExpression><![CDATA[$F{customerId}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="150" y="0" width="200" height="25"/>
+                <textFieldExpression><![CDATA[$F{orderDate}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+</jasperReport>

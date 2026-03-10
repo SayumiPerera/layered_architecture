@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.layeredarchitecture.controller.OrderViewController">
+    <top>
+        <VBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #572c0e;" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="#fff7f7" strokeType="OUTSIDE" strokeWidth="0.0" text="Orders" textAlignment="CENTER" wrappingWidth="800.624267578125">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.5003937007874015" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="762.0" style="-fx-background-color: #f0eac7;">
+                    <children>
+                        <VBox layoutX="29.0" layoutY="29.0" prefHeight="48.0" prefWidth="158.0">
+                            <children>
+                                <Label text="Order ID :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="314.0" layoutY="29.0" prefHeight="48.0" prefWidth="161.0">
+                            <children>
+                                <Label text="Order Date :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="29.0" layoutY="80.0" prefHeight="53.0" prefWidth="223.0">
+                            <children>
+                                <Label text="Customer :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="520.0" layoutY="29.0" prefHeight="48.0" prefWidth="158.0">
+                            <children>
+                                <Label text="Total Amount :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="29.0" layoutY="131.0" prefHeight="48.0" prefWidth="254.0">
+                            <children>
+                                <Label text="Order Status(pending/completed/cancelled) :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="315.0" layoutY="83.0" prefHeight="48.0" prefWidth="158.0">
+                            <children>
+                                <Label text="Payment Status :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <HBox layoutX="334.0" layoutY="210.0" prefHeight="36.0" prefWidth="426.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="80.0" style="-fx-background-radius: 10; -fx-background-color: green;" text="Save" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="8.0" />
+                                    </HBox.margin>
+                                </Button>
+
+                                <Button mnemonicParsing="false" onAction="#printOrderReport" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #9C27B0; -fx-background-radius: 10;" text="Report" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets right="8.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Button>
+
+                                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: blue; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="8.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="8.0" />
+                                    </HBox.margin>
+
+                                </Button>
+                                <Button layoutX="114.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleReset" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Reset" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="8.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <TableView layoutX="-3.0" layoutY="-2.0" prefHeight="270.0" prefWidth="800.0">
+                            <columns>
+                                <TableColumn prefWidth="86.39999341964722" text="Order ID" />
+                                <TableColumn prefWidth="146.4000244140625" text="Order Date" />
+                                <TableColumn prefWidth="141.5999755859375" text="Total Amount" />
+                                <TableColumn prefWidth="131.20001220703125" text="Customer" />
+                                <TableColumn prefWidth="152.79998779296875" text="Order Status" />
+                                <TableColumn prefWidth="144.0" text="Payment Status" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

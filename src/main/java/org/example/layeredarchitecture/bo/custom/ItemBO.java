@@ -1,0 +1,19 @@
+package org.example.layeredarchitecture.bo.custom;
+
+import org.example.layeredarchitecture.bo.SuperBO;
+import org.example.layeredarchitecture.dto.ItemDTO;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public interface ItemBO extends SuperBO {
+
+    public ArrayList<ItemDTO> getAllItem() throws SQLException, ClassNotFoundException;
+    public boolean saveItem(ItemDTO item) throws SQLException, ClassNotFoundException;
+    public boolean updateItem(ItemDTO item) throws SQLException, ClassNotFoundException;
+    public boolean existItem(String id) throws SQLException, ClassNotFoundException;
+    public boolean deleteItem(String id) throws SQLException, ClassNotFoundException;
+    public String generateItemNewID() throws SQLException, ClassNotFoundException;
+    public ItemDTO findItem(String id) throws SQLException, ClassNotFoundException;
+
+}

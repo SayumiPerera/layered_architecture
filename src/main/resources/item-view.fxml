@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.layeredarchitecture.controller.ItemViewController">
+    <top>
+        <VBox prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #572c0e;" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="800.1629276275635">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="191.0" prefWidth="334.0" style="-fx-background-color: #f0eac7;">
+                    <children>
+                        <VBox layoutX="15.0" layoutY="11.0" prefHeight="46.0" prefWidth="185.0">
+                            <children>
+                                <Label text="Item ID :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="14.0" layoutY="57.0" prefHeight="46.0" prefWidth="306.0">
+                            <children>
+                                <Label text="Item Name :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="15.0" layoutY="112.0" prefHeight="46.0" prefWidth="234.0">
+                            <children>
+                                <Label text="Item Category :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="14.0" layoutY="158.0" prefHeight="46.0" prefWidth="235.0">
+                            <children>
+                                <Label text="Stock Quantity :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="419.0" layoutY="135.0" prefHeight="46.0" prefWidth="274.0">
+                            <children>
+                                <Label prefHeight="20.0" prefWidth="167.0" text="Unit Price :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField prefHeight="26.0" prefWidth="319.0" />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="14.0" layoutY="204.0" prefHeight="46.0" prefWidth="139.0">
+                            <children>
+                                <Label text="Buying Price : ">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                        <VBox layoutX="414.0" layoutY="11.0" prefHeight="66.0" prefWidth="283.0">
+                            <children>
+                                <Label text=" Description :">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextArea prefHeight="39.0" prefWidth="261.0" />
+                            </children>
+                        </VBox>
+                        <HBox layoutX="391.0" layoutY="199.0" prefHeight="36.0" prefWidth="330.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#saveItem" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: green; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="7.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-background-color: blue;" text="Update" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="7.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="30.0" prefWidth="75.0" style="-fx-background-radius: 10; -fx-background-color: red;" text="Delete" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="7.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button layoutX="114.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetItem" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Reset" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="7.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <AnchorPane layoutY="258.0" minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="800.0" style="-fx-background-color: #f0eac7;">
+                            <children>
+                                <TableView layoutX="-3.0" prefHeight="282.0" prefWidth="800.0">
+                                    <columns>
+                                        <TableColumn prefWidth="57.600006103515625" text="Item ID" />
+                                        <TableColumn prefWidth="76.80001831054688" text="Item Name" />
+                                        <TableColumn prefWidth="84.80001831054688" text="Item Category" />
+                                        <TableColumn prefWidth="100.0" text="Stock Quantity" />
+                                        <TableColumn prefWidth="112.0" text="Unit Price" />
+                                        <TableColumn minWidth="6.40008544921875" prefWidth="93.5999755859375" text="Buying Price" />
+                                        <TableColumn prefWidth="108.7999267578125" text="Supplier ID" />
+                                        <TableColumn prefWidth="171.20001220703125" text="Description" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                        <VBox layoutX="419.0" layoutY="77.0" prefHeight="46.0" prefWidth="222.0">
+                            <children>
+                                <Label text="Supplier ID : ">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField />
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

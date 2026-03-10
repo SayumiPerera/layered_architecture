@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="customerContent"
+            prefHeight="600.0"
+            prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.layeredarchitecture.controller.CustomerViewController">
+
+    <children>
+
+        <!-- Header -->
+        <VBox alignment="CENTER" prefHeight="80.0" prefWidth="800.0"
+              style="-fx-background-color: #572c0e;">
+            <Text text="Customer Management" fill="WHITE">
+                <font>
+                    <Font size="30" />
+                </font>
+            </Text>
+        </VBox>
+
+        <!-- Form -->
+        <Pane layoutY="80" prefHeight="237" prefWidth="800"
+              style="-fx-background-color: #fce9c0;">
+            <children>
+
+                <VBox layoutX="30" layoutY="25" prefWidth="350">
+                    <Label text="Customer Name"/>
+                    <TextField fx:id="nameField"/>
+                </VBox>
+
+                <VBox layoutX="440" layoutY="25" prefWidth="210">
+                    <Label text="Customer ID"/>
+                    <TextField fx:id="idField" onKeyPressed="#handleSearchCustomer"/>
+                </VBox>
+
+                <VBox layoutX="30" layoutY="100" prefWidth="270">
+                    <Label text="Customer Contact"/>
+                    <TextField fx:id="contactField"/>
+                </VBox>
+
+                <VBox layoutX="440" layoutY="100" prefWidth="285">
+                    <Label text="Customer Address"/>
+                    <TextArea fx:id="addressField" prefHeight="70"/>
+                </VBox>
+
+                <HBox layoutX="260" layoutY="190" spacing="10">
+                    <Button text="Save" onAction="#saveCustomer"
+                            style="-fx-background-color: green; -fx-text-fill: white;"/>
+                    <Button text="Update" onAction="#updateCustomer"
+                            style="-fx-background-color: blue; -fx-text-fill: white;"/>
+                    <Button text="Delete" onAction="#deleteCustomer"
+                            style="-fx-background-color: red; -fx-text-fill: white;"/>
+                    <Button text="Reset" onAction="#resetCustomer"
+                            style="-fx-background-color: orange;"/>
+                </HBox>
+
+            </children>
+        </Pane>
+
+        <!-- Table -->
+        <Pane layoutY="317" prefHeight="283" prefWidth="800"
+              style="-fx-background-color: #fff9d9;">
+            <TableView fx:id="tblCustomer" prefWidth="800" prefHeight="283">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+                    <TableColumn fx:id="colName" text="Name" prefWidth="200"/>
+                    <TableColumn fx:id="colAddress" text="Address" prefWidth="320"/>
+                    <TableColumn fx:id="colContact" text="Contact" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </Pane>
+
+    </children>
+</AnchorPane>

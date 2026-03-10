@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC
+        "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="CustomerReport"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="555"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20">
+
+    <!-- Fields -->
+    <field name="id" class="java.lang.Integer"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="address" class="java.lang.String"/>
+    <field name="contact" class="java.lang.String"/>
+
+    <!-- Title -->
+    <title>
+        <band height="40">
+            <textField>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Customer Report"]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <!-- Column Header -->
+    <columnHeader>
+        <band height="25">
+            <staticText><reportElement x="0" y="0" width="50" height="25"/><text><![CDATA[ID]]></text></staticText>
+            <staticText><reportElement x="50" y="0" width="150" height="25"/><text><![CDATA[Name]]></text></staticText>
+            <staticText><reportElement x="200" y="0" width="200" height="25"/><text><![CDATA[Address]]></text></staticText>
+            <staticText><reportElement x="400" y="0" width="155" height="25"/><text><![CDATA[Contact]]></text></staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detail -->
+    <detail>
+        <band height="25">
+            <textField><reportElement x="0" y="0" width="50" height="25"/><textFieldExpression><![CDATA[$F{id}]]></textFieldExpression></textField>
+            <textField><reportElement x="50" y="0" width="150" height="25"/><textFieldExpression><![CDATA[$F{name}]]></textFieldExpression></textField>
+            <textField><reportElement x="200" y="0" width="200" height="25"/><textFieldExpression><![CDATA[$F{address}]]></textFieldExpression></textField>
+            <textField><reportElement x="400" y="0" width="155" height="25"/><textFieldExpression><![CDATA[$F{contact}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+
+</jasperReport>

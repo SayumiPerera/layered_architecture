@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="employeeContent" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.layeredarchitecture.controller.EmployeeViewController">
+
+    <children>
+        <VBox prefHeight="66.0" prefWidth="801.0" style="-fx-background-color: #572c0e;">
+            <children>
+                <Text fill="WHITE" text="Employee" textAlignment="CENTER" wrappingWidth="798.1558">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+
+        <Pane layoutX="1.0" layoutY="67.0" prefHeight="274.0" prefWidth="800.0" style="-fx-background-color: #fce9c0;">
+            <children>
+
+                <VBox layoutX="317.0" layoutY="30.0" prefHeight="53.0" prefWidth="158.0">
+                    <children>
+                        <Label text="Employee ID :">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtEmployeeId" prefHeight="26.0" prefWidth="136.0" />
+                    </children>
+                </VBox>
+
+                <VBox layoutX="37.0" layoutY="32.0" prefHeight="49.0" prefWidth="234.0">
+                    <children>
+                        <Label text="Employee Name :">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtEmployeeName" />
+                    </children>
+                </VBox>
+
+                <VBox layoutX="37.0" layoutY="93.0" prefHeight="49.0" prefWidth="234.0">
+                    <children>
+                        <Label text="Employee Contact :">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtEmployeeContact" />
+                    </children>
+                </VBox>
+
+                <VBox layoutX="37.0" layoutY="169.0" prefHeight="53.0" prefWidth="190.0">
+                    <children>
+                        <Label text="Employee Hire Date :">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <DatePicker fx:id="dpEmployeeHireDate" prefHeight="26.0" prefWidth="238.0" />
+                    </children>
+                </VBox>
+
+                <HBox layoutX="311.0" layoutY="210.0" prefHeight="40.0" prefWidth="473.0" spacing="8.0">
+                    <children>
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="75.0"
+                                style="-fx-background-color: green; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+
+                        <Button mnemonicParsing="false" onAction="#printEmployeeReport" prefHeight="30.0" prefWidth="75.0"
+                                style="-fx-background-color: #9C27B0; -fx-background-radius: 10;" text="Report" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="30.0" prefWidth="75.0"
+                                style="-fx-background-color: blue; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="30.0" prefWidth="75.0"
+                                style="-fx-background-color: red; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="btnReset" mnemonicParsing="false" onAction="#handleReset" prefHeight="30.0" prefWidth="75.0"
+                                style="-fx-background-color: orange; -fx-background-radius: 10;" text="Reset" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <VBox layoutX="313.0" layoutY="102.0" prefHeight="53.0" prefWidth="166.0">
+                    <children>
+                        <Label text="Employee Salary :">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtEmployeeSalary" prefHeight="26.0" prefWidth="238.0" />
+                    </children>
+                </VBox>
+
+                <VBox layoutX="603.0" layoutY="30.0" prefHeight="53.0" prefWidth="148.0">
+                    <children>
+                        <Label text="Employee Role :">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtEmployeeRole" prefHeight="26.0" prefWidth="238.0" />
+                    </children>
+                </VBox>
+
+            </children>
+        </Pane>
+
+        <Pane layoutX="1.0" layoutY="339.0" prefHeight="262.0" prefWidth="798.0" style="-fx-background-color: #fff9d9;">
+            <children>
+                <TableView fx:id="tblEmployees" layoutX="-2.0" layoutY="-1.0" prefHeight="262.0" prefWidth="801.0">
+                    <columns>
+                        <TableColumn fx:id="colEmployeeId" prefWidth="100.0" text="Employee ID" />
+                        <TableColumn fx:id="colEmployeeName" prefWidth="146.0" text="Employee Name" />
+                        <TableColumn fx:id="colEmployeeContact" prefWidth="92.0" text="Employee Contact" />
+                        <TableColumn fx:id="colEmployeeRole" prefWidth="85.0" text="Employee Role" />
+                        <TableColumn fx:id="colEmployeeSalary" prefWidth="102.0" text="Employee Salary" />
+                        <TableColumn fx:id="colEmployeeHireDate" prefWidth="119.0" text="Employee Hire Date" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
