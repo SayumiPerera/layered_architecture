@@ -3,6 +3,7 @@ package org.example.layeredarchitecture.dao.custom.impl;
 import org.example.layeredarchitecture.dao.CRUDUtil;
 import org.example.layeredarchitecture.dao.custom.StockDAO;
 import org.example.layeredarchitecture.entity.Stock;
+import org.example.layeredarchitecture.entity.Supplier;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -55,8 +56,8 @@ public class StockDAOImpl implements StockDAO {
     }
 
     @Override
-    public boolean find(String id) throws SQLException, ClassNotFoundException {
-        return false;
+    public Stock find(String id) throws SQLException, ClassNotFoundException {
+        return null;
     }
 
     @Override

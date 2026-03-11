@@ -2,7 +2,6 @@ package org.example.layeredarchitecture.dao.custom.impl;
 
 import org.example.layeredarchitecture.dao.CRUDUtil;
 import org.example.layeredarchitecture.dao.custom.OrderDAO;
-import org.example.layeredarchitecture.dto.OrderDTO;
 import org.example.layeredarchitecture.entity.Order;
 
 import java.sql.*;
@@ -24,7 +23,7 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public Order find(String id) throws SQLException, ClassNotFoundException {
-        return null;
+        return find(null);
     }
 
     public boolean exits(String orderId) throws SQLException, ClassNotFoundException {

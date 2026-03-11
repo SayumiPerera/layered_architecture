@@ -114,7 +114,7 @@ public class EmployeeViewController {
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
-    public void btnAddNew_OnAction(ActionEvent actionEvent) {
+    public void handleUpdate(ActionEvent actionEvent) {
         txtEmployeeId.setDisable(false);
         txtEmployeeName.setDisable(false);
         txtEmployeeAddress.setDisable(false);
@@ -128,7 +128,7 @@ public class EmployeeViewController {
         tblEmployees.getSelectionModel().clearSelection();
     }
 
-    public void btnSave_OnAction(ActionEvent actionEvent) {
+    public void handleSave(ActionEvent actionEvent) {
         String id = txtEmployeeId.getText();
         String name = txtEmployeeName.getText();
         String address = txtEmployeeAddress.getText();
@@ -189,7 +189,7 @@ public class EmployeeViewController {
         return employeeBO.existEmployee(id);
     }
 
-    public void btnDelete_OnAction(ActionEvent actionEvent) {
+    public void handleDelete(ActionEvent actionEvent) {
         /*Delete Employee*/
         String id = tblEmployees.getSelectionModel().getSelectedItem().getId();
         try {

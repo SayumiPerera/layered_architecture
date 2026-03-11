@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class EmployeeBOImpl implements EmployeeBO {
 
-    EmployeeDAO employeeDAO = (EmployeeDAO) DAOFactory.getInstance().getDAOType(DAOFactory.DAOType.EMPLOYEE);
+    private final EmployeeDAO employeeDAO = (EmployeeDAO) DAOFactory.getInstance().getDAOType(DAOFactory.DAOType.EMPLOYEE);
 
     @Override
     public ArrayList<EmployeeDTO> getAllEmployees() throws SQLException, ClassNotFoundException {
@@ -19,14 +19,24 @@ public class EmployeeBOImpl implements EmployeeBO {
         ArrayList<EmployeeDTO> employeeDtos = new ArrayList<>();
 
         for (Employee employee : employees) {
-            employeeDtos.add(new EmployeeDTO(employee.getId(), employee.getName(), employee.getAddress(),employee.getSalary()));
+            employeeDtos.add(new EmployeeDTO(
+                    employee.getId(),
+                    employee.getName(),
+                    employee.getAddress(),
+                    employee.getSalary()
+            ));
         }
         return employeeDtos;
     }
 
     @Override
     public boolean saveEmployee(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException {
-        return employeeDAO.save(new Employee(employeeDTO.getId(), employeeDTO.getName(), employeeDTO.getAddress(),employeeDTO.getSalary()));
+        return employeeDAO.save(new Employee(
+                employeeDTO.getId(),
+                employeeDTO.getName(),
+                employeeDTO.getAddress(),
+                employeeDTO.getSalary()
+        ));
     }
 
     @Override
@@ -36,7 +46,12 @@ public class EmployeeBOImpl implements EmployeeBO {
 
     @Override
     public boolean updateEmployee(EmployeeDTO employeeDTO) throws SQLException, ClassNotFoundException {
-        return employeeDAO.update(new Employee(employeeDTO.getId(), employeeDTO.getName(), employeeDTO.getAddress(),employeeDTO.getSalary()));
+        return employeeDAO.update(new Employee(
+                employeeDTO.getId(),
+                employeeDTO.getName(),
+                employeeDTO.getAddress(),
+                employeeDTO.getSalary()
+        ));
     }
 
     @Override
@@ -52,7 +67,14 @@ public class EmployeeBOImpl implements EmployeeBO {
     @Override
     public EmployeeDTO findEmployee(String id) throws SQLException, ClassNotFoundException {
         Employee employee = employeeDAO.find(id);
-        return new EmployeeDTO(employee.getId(), employee.getName(), employee.getAddress(),employee.getSalary());
+        if (employee == null) {
+            return null;
+        }
+        return new EmployeeDTO(
+                employee.getId(),
+                employee.getName(),
+                employee.getAddress(),
+                employee.getSalary()
+        );
     }
-
 }

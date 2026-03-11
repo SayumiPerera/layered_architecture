@@ -10,7 +10,7 @@ import java.util.ArrayList;
         boolean delete(String id) throws SQLException, ClassNotFoundException;
         boolean exists()throws SQLException, ClassNotFoundException;
         void search(String id) throws SQLException, ClassNotFoundException;
-        boolean find(String id) throws SQLException, ClassNotFoundException;
+        Object find(String id) throws SQLException, ClassNotFoundException;
     }
 
 

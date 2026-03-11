@@ -2,8 +2,8 @@ package org.example.layeredarchitecture.dao.custom.impl;
 
 import org.example.layeredarchitecture.dao.CRUDUtil;
 import org.example.layeredarchitecture.dao.custom.OrderDetailDAO;
-import org.example.layeredarchitecture.dto.OrderDetailDTO;
 import org.example.layeredarchitecture.entity.OrderDetail;
+import org.example.layeredarchitecture.entity.Supplier;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -52,4 +52,9 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     public OrderDetail find(String id) throws SQLException, ClassNotFoundException {
         return null;
     }
+
+//    @Override
+////    public Supplier find(String id) throws SQLException, ClassNotFoundException {
+////        return false;
+////    }
 }

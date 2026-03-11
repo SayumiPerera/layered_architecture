@@ -1,5 +1,7 @@
 package org.example.layeredarchitecture.entity;
 
+import java.math.BigDecimal;
+
 public class OrderDetail {
 
     private String oid;
@@ -14,6 +16,9 @@ public class OrderDetail {
         this.itemCode = itemCode;
         this.unitPrice = unitPrice;
         this.qty = qty;
+    }
+
+    public OrderDetail(String orderId, String itemCode, int qty, BigDecimal unitPrice) {
     }
 
     public String getOid() {

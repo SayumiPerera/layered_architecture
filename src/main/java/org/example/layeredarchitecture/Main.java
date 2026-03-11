@@ -11,6 +11,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static Parent loadFXML(String stock) {
+        return null;
     }
 
     public static void setRoot(String login) {
@@ -18,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/example/layered_architecture/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("IJSE");
         stage.setScene(scene);

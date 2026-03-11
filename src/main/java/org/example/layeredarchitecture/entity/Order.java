@@ -39,4 +39,13 @@ public class Order {
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
+
+    public Object getCustomerName() {
+
+        return null;
+    }
+
+    public Object getOrderTotal() {
+        return null;
+    }
 }

@@ -97,6 +97,10 @@ public class ItemDAOImpl implements ItemDAO {
         return List.of();
     }
 
+    public Item find() throws SQLException, ClassNotFoundException {
+        return find(null);
+    }
+
     public Item find(String itemCode) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getDbConnection().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Item WHERE code=?");

@@ -2,6 +2,7 @@ package org.example.layeredarchitecture.dao.custom;
 
 import org.example.layeredarchitecture.dao.CrudDAO;
 import org.example.layeredarchitecture.entity.Employee;
+import org.example.layeredarchitecture.entity.Supplier;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,5 +14,6 @@ public interface EmployeeDAO extends CrudDAO<Employee> {
     public boolean exists(String id) throws SQLException, ClassNotFoundException;
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public String generateNewID() throws SQLException, ClassNotFoundException;
-    public Employee find(String id) throws SQLException, ClassNotFoundException;
+   // public Supplier find(String id) throws SQLException, ClassNotFoundException;
+    Employee find(String id) throws SQLException, ClassNotFoundException;
 }

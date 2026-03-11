@@ -3,6 +3,7 @@ package org.example.layeredarchitecture.dao.custom.impl;
 import org.example.layeredarchitecture.dao.CRUDUtil;
 import org.example.layeredarchitecture.dao.custom.PaymentDAO;
 import org.example.layeredarchitecture.entity.Payment;
+import org.example.layeredarchitecture.entity.Supplier;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -70,9 +71,10 @@ public class PaymentDAOImpl implements PaymentDAO {
     }
 
     @Override
-    public boolean find(String id) throws SQLException, ClassNotFoundException {
-        return false;
+    public Payment find(String id) throws SQLException, ClassNotFoundException {
+        return null;
     }
+
 
     @Override
     public boolean delete(int id) throws SQLException, ClassNotFoundException {

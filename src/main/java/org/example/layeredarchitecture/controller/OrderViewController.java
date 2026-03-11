@@ -24,10 +24,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 
-
-import java.awt.Button;
-import java.awt.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -180,7 +181,6 @@ public class OrderViewController {
     boolean existCustomer(String id) throws SQLException, ClassNotFoundException {
         return orderBO.existCustomer(id);
     }
-
 
     public String generateNewOrderId() {
         try {

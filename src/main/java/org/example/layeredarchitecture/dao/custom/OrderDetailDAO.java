@@ -2,6 +2,7 @@ package org.example.layeredarchitecture.dao.custom;
 
 import org.example.layeredarchitecture.dao.CrudDAO;
 import org.example.layeredarchitecture.entity.OrderDetail;
+import org.example.layeredarchitecture.entity.Supplier;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

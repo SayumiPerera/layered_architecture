@@ -21,15 +21,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 
 
 public class CustomerViewController {
@@ -117,7 +114,7 @@ public class CustomerViewController {
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
-    public void btnAddNew_OnAction(ActionEvent actionEvent) {
+    public void updateCustomer(ActionEvent actionEvent) {
         txtCustomerId.setDisable(false);
         txtCustomerName.setDisable(false);
         txtCustomerAddress.setDisable(false);
@@ -131,8 +128,7 @@ public class CustomerViewController {
         tblCustomers.getSelectionModel().clearSelection();
     }
 
-
-    public void btnSave_OnAction(ActionEvent actionEvent) {
+    public void saveCustomer(ActionEvent actionEvent) {
         String id = txtCustomerId.getText();
         String name = txtCustomerName.getText();
         String address = txtCustomerAddress.getText();
@@ -188,14 +184,12 @@ public class CustomerViewController {
         btnAddNewCustomer.fire();
     }
 
-
     boolean existCustomer(String id) throws SQLException, ClassNotFoundException {
         //tight coupling--->Loose couple
         return customerBO.existCustomer(id);
     }
 
-
-    public void btnDelete_OnAction(ActionEvent actionEvent) {
+    public void deleteCustomer(ActionEvent actionEvent) {
         /*Delete Customer*/
         String id = tblCustomers.getSelectionModel().getSelectedItem().getId();
         try {

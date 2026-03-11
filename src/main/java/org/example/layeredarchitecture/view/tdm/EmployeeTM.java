@@ -48,4 +48,9 @@ public class EmployeeTM implements Comparable<EmployeeTM>{
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public int compareTo(EmployeeTM o) {
+        return 0;
+    }
 }

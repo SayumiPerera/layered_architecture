@@ -1,6 +1,7 @@
 package org.example.layeredarchitecture.dao.custom;
 
 import org.example.layeredarchitecture.dao.CrudDAO;
+import org.example.layeredarchitecture.entity.Customer;
 import org.example.layeredarchitecture.entity.Order;
 
 import java.sql.SQLException;
@@ -13,5 +14,6 @@ public interface OrderDAO extends CrudDAO<Order> {
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public String generateNewID() throws SQLException, ClassNotFoundException;
     public boolean exists(String id) throws SQLException, ClassNotFoundException;
+//    public Boolean find(String id) throws SQLException, ClassNotFoundException;
     public Order find(String id) throws SQLException, ClassNotFoundException;
 }

@@ -4,7 +4,8 @@ import org.example.layeredarchitecture.dao.CRUDUtil;
 import org.example.layeredarchitecture.dao.custom.EmployeeDAO;
 import org.example.layeredarchitecture.entity.Employee;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -12,14 +13,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public ArrayList<Employee> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = CRUDUtil.execute("SELECT * FROM Employee");
-        ArrayList<Employee> employees = new ArrayList<Employee>();
+        ArrayList<Employee> employees = new ArrayList<>();
 
         while (rst.next()) {
-            String id = rst.getString("id");
-            String name = rst.getString("name");
-            String address = rst.getString("address");
-            double salary = rst.getDouble("salary");
-            Employee entity = new Employee(id, name, address,salary);
+            Employee entity = new Employee(
+                    rst.getString("id"),
+                    rst.getString("name"),
+                    rst.getString("address"),
+                    rst.getDouble("salary")
+            );
             employees.add(entity);
         }
         return employees;
@@ -27,12 +29,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public boolean save(Employee entity) throws SQLException, ClassNotFoundException {
-        return CRUDUtil.execute("INSERT INTO Employee (id, name, address) VALUES (?,?,?)", entity.getId(), entity.getName(), entity.getAddress());
+        return CRUDUtil.execute("INSERT INTO Employee (id, name, address, salary) VALUES (?,?,?,?)",
+                entity.getId(), entity.getName(), entity.getAddress(), entity.getSalary());
     }
 
     @Override
     public boolean update(Employee entity) throws SQLException, ClassNotFoundException {
-        return CRUDUtil.execute("UPDATE Employee SET name=?, address=? WHERE id=?", entity.getName(), entity.getAddress(), entity.getId());
+        return CRUDUtil.execute("UPDATE Employee SET name=?, address=?, salary=? WHERE id=?",
+                entity.getName(), entity.getAddress(), entity.getSalary(), entity.getId());
     }
 
     @Override
@@ -51,22 +55,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
+    public boolean exists(String id) throws SQLException, ClassNotFoundException {
+        ResultSet rst = CRUDUtil.execute("SELECT * FROM Employee WHERE id=?", id);
+        return rst.next();
+    }
+
+    @Override
     public String generateNewID() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CRUDUtil.execute("SELECT id FROM Employee ORDER BY id DESC LIMIT 1;");
+        ResultSet rst = CRUDUtil.execute("SELECT id FROM Employee ORDER BY id DESC LIMIT 1");
 
         if (rst.next()) {
             String id = rst.getString("id");
             int newEmployeeId = Integer.parseInt(id.replace("E00-", "")) + 1;
             return String.format("E00-%03d", newEmployeeId);
-        } else {
-            return "E00-001";
         }
-    }
-
-    @Override
-    public boolean exists(String id) throws SQLException, ClassNotFoundException {
-        ResultSet rst = CRUDUtil.execute("SELECT * FROM Employee WHERE id=?", id);
-        return rst.next();
+        return "E00-001";
     }
 
     @Override
@@ -82,5 +85,4 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
         return null;
     }
-
 }

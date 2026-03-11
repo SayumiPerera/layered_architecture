@@ -1,7 +1,6 @@
 package org.example.layeredarchitecture.dao.custom;
 
 import org.example.layeredarchitecture.dao.CrudDAO;
-import org.example.layeredarchitecture.dto.SupplierDTO;
 import org.example.layeredarchitecture.entity.Supplier;
 
 import java.sql.SQLException;
