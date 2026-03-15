@@ -7,14 +7,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
 
-    public static Parent loadFXML(String stock) {
-        return null;
+    private static Scene scene;
+
+    public static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
     }
 
-    public static void setRoot(String login) {
+    public static Parent loadFXML(String fxml) throws IOException {
+        return FXMLLoader.load(
+                Objects.requireNonNull(Main.class.getResource("/" + fxml + "layout.fxml"))
+        );
     }
 
     @Override
@@ -30,3 +36,5 @@ public class Main extends Application {
         launch();
     }
 }
+
+

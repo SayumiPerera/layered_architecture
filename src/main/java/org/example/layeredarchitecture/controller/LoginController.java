@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.example.layeredarchitecture.Main;
+import org.example.layeredarchitecture.bo.custom.LoginBO;
+import org.example.layeredarchitecture.bo.custom.impl.LoginBOImpl;
 
 
 public class LoginController {
@@ -35,18 +37,17 @@ public class LoginController {
 
     @FXML
     private void login_page(ActionEvent event) {
-        String realUsername = "s";
-        String realPassword = "s";
 
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if (realUsername.equals(username) && realPassword.equals(password)) {
+        LoginBO loginBO = new LoginBOImpl();   // Business layer
+
+        if (loginBO.authenticate(username, password)) {
             try {
-                Main.setRoot("Layout");
+                Main.setRoot("layout.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
-
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -57,3 +58,4 @@ public class LoginController {
         }
     }
 }
+

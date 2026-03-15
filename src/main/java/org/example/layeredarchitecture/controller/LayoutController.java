@@ -29,7 +29,7 @@ public class LayoutController implements Initializable {
     private void loadView() {
         mainContent.getChildren().clear();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Customer.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/customer-view.fxml"));
             AnchorPane st = fxmlLoader.load();
 
             LayoutController l = fxmlLoader.getController();
@@ -42,49 +42,49 @@ public class LayoutController implements Initializable {
 
     @FXML
     private void clickCustomerNav() throws IOException {
-        Parent customerFxML = Main.loadFXML("Customer");
+        Parent customerFxML = Main.loadFXML("/customer-view");
         mainContent.getChildren().setAll(customerFxML);
     }
 
     @FXML
     private void clickEmployeeNav() throws IOException {
-        Parent employeeFxML = Main.loadFXML("Employee");
+        Parent employeeFxML = Main.loadFXML("/employee-view");
         mainContent.getChildren().setAll(employeeFxML);
     }
 
     @FXML
     private void clickOrderNav() throws IOException {
-        Parent orderFXML = Main.loadFXML("Order");
+        Parent orderFXML = Main.loadFXML("/order-view");
         mainContent.getChildren().setAll(orderFXML);
     }
 
     @FXML
     private void clickItemNav() throws IOException {
-        Parent itemFXML = Main.loadFXML("Item");
+        Parent itemFXML = Main.loadFXML("/item-view");
         mainContent.getChildren().setAll(itemFXML);
     }
 
     @FXML
     private void clickSupplierNav() throws IOException {
-        Parent supplierFXML = Main.loadFXML("Supplier");
+        Parent supplierFXML = Main.loadFXML("/supplier-view");
         mainContent.getChildren().setAll(supplierFXML);
     }
 
     @FXML
     private void clickPaymentNav() throws IOException {
-        Parent paymentFXML = Main.loadFXML("Payment");
+        Parent paymentFXML = Main.loadFXML("/payment-view");
         mainContent.getChildren().setAll(paymentFXML);
     }
 
     @FXML
     private void clickStockNav() throws IOException {
-        Parent stockFXML = Main.loadFXML("Stock");
+        Parent stockFXML = Main.loadFXML("/stock-view");
         mainContent.getChildren().setAll(stockFXML);
     }
 
     @FXML
-    private void clickLogoutNav() {
-        Main.setRoot("login");
+    private void clickLogoutNav() throws IOException {
+        Main.setRoot("/login");
     }
 
 
