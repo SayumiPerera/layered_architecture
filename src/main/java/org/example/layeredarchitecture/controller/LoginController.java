@@ -45,7 +45,7 @@ public class LoginController {
 
         if (loginBO.authenticate(username, password)) {
             try {
-                Main.setRoot("layout.fxml");
+                Main.setRoot("layout");
             } catch (Exception e) {
                 e.printStackTrace();
             }
